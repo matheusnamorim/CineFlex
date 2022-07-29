@@ -1,0 +1,26 @@
+
+p{
+    font-size: 20px;
+    padding: 0 24px;
+    color: #293845;    
+}
+
+
+.sections{
+    display: flex;
+    align-items: center;
+    padding: 24px;
+}
+
+.schedules{
+    width: 83px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+    background-color: #E8833A;
+    border-radius: 3px;
+    font-size: 18px;
+    color: #FFFFFF;
+}
