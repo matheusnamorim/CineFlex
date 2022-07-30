@@ -52,6 +52,11 @@ export default function SeatsRoute(){
                         <input placeholder="Digite seu CPF..."/>
                     </div>
                 </div>
+                <div className="dimensionsButton">
+                    <div className="button">
+                        <p>Reservar assento(s)</p>
+                    </div>
+                </div>
                 <Footer img={data.movie.posterURL} title={data.movie.title} lock={true} weekday={data.day.weekday} hour={data.name}/>
             </>
         );
