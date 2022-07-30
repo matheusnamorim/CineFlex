@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import './style.css';
 import NavBar from "../NavBar/NavBar";
 import Section from "../Section/Section";
+import Footer from "../Footer/Footer";
 
 export default function SectionRoute(){
     
@@ -27,14 +28,7 @@ export default function SectionRoute(){
                 <ul>
                     {sections.map(value => <Section key={value.id} data={value}/>)}
                 </ul>
-                <div className="footer">
-                    <div className="backgroundImg">
-                        <img src={data.posterURL}/>
-                    </div>
-                    <div className="title">
-                        <p>{data.title}</p>
-                    </div>
-                </div>
+                <Footer img={data.posterURL} title={data.title} lock={false}/>
             </>
         );
     }
