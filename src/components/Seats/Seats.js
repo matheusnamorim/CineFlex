@@ -1,7 +1,7 @@
 import './style.css';
 import { useState } from 'react';
 
-export default function Seats({data, setSeatsArray, seatsArray}){
+export default function Seats({data, setSeatsArray, seatsArray, seatsId, setSeatsId}){
 
     const [classSeat, setClassSeat] = useState('seat available');
 
@@ -12,10 +12,13 @@ export default function Seats({data, setSeatsArray, seatsArray}){
             if(classSeat === 'seat selected') {
                 setClassSeat('seat available');
                 const aux = seatsArray.filter(value => value !== seat.id);
-                setSeatsArray([...aux]);
+                setSeatsArray([...aux]);    
+                const auxId = seatsId.filter(value => value !== seat.name);
+                setSeatsId([...auxId]);
             }else {
                 setClassSeat('seat selected');
                 setSeatsArray([...seatsArray, seat.id]);
+                setSeatsId([...seatsId, seat.name]);
             }
         }
     }

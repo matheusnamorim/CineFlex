@@ -15,6 +15,7 @@ export default function SeatsRoute(){
     const [name, setName] = useState('');
     const [cpf, setCpf] = useState('');
     const [seatsArray, setSeatsArray] = useState([]);
+    const [seatsId, setSeatsId] = useState([]);
 
     useEffect(() => {
         
@@ -35,8 +36,7 @@ export default function SeatsRoute(){
             // });
 
             // promise.then((e) => console.log(e));
-            console.log(data);
-            navigate('/sucesso', {state: {name: name}});
+            navigate('/sucesso', {state: {nameUser: name, cpf: cpf, title: data.movie.title, hour: data.name, day: data.day.date, seatsId: seatsId}});
 
         }else alert('tem dado errado ai!');
     }
@@ -50,7 +50,7 @@ export default function SeatsRoute(){
             <>
                 <NavBar title='Selecione o(s) assento(s)'/>
                 <div className="seats">
-                    {seats.map(value => <Seats key={value.id} data={value} setSeatsArray={setSeatsArray} seatsArray={seatsArray}/>)}
+                    {seats.map(value => <Seats key={value.id} data={value} setSeatsArray={setSeatsArray} seatsArray={seatsArray} seatsId={seatsId} setSeatsId={setSeatsId}/>)}
                 </div>
                 <div className="legends">
                     <div className="icons">
