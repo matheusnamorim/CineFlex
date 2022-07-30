@@ -24,6 +24,18 @@ export default function SeatsRoute(){
     
     }, []);
     
+    function makeReserv(){
+        if(seatsArray.length !== 0 && cpf !== '' && name !== ''){
+            const promise = axios.post('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many', {
+                ids: seatsArray,
+                name: name,
+                cpf: cpf
+            });
+
+            promise.then((e) => console.log(e));
+        }else alert('tem dado errado ai!');
+    }
+
     // console.log(seats);
     //  console.log(data);
 
@@ -58,7 +70,7 @@ export default function SeatsRoute(){
                     </div>
                 </div>
                 <div className="dimensionsButton">
-                    <div className="button">
+                    <div className="button" onClick={() => makeReserv()}>
                         <p>Reservar assento(s)</p>
                     </div>
                 </div>
