@@ -11,18 +11,6 @@
     grid-template-columns: 33px 33px 33px 33px 33px 33px 33px 33px 33px 33px;
 }
 
-.seat{
-    width: 26px;
-    height: 26px;
-    border-radius: 12px;
-    margin: 0 3.5px 18px 3.5px;
-    background-color: #C3CFD9;
-    border: 1px solid #808F9D;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .legends{
     display: flex;
     flex-direction: column;

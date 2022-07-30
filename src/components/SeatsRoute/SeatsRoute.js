@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
+import Seats from "../Seats/Seats";
 
 export default function SeatsRoute(){
     const params = useParams();
@@ -28,7 +29,7 @@ export default function SeatsRoute(){
             <>
                 <NavBar title='Selecione o(s) assento(s)'/>
                 <div className="seats">
-                    {seats.map((value, index) => <div className="seat">{index+1}</div>)}
+                    {seats.map(value => <Seats data={value}/>)}
                 </div>
                 <div className="legends">
                     <div className="icons">
