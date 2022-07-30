@@ -1,0 +1,20 @@
+
+.HomeButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 225px;
+    height: 42px;
+    border-radius: 3px;
+    background-color: #E8833A;
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFF;
+}
+
+.dimensionsBtn{
+    margin: 110px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

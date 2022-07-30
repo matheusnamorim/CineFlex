@@ -1,7 +1,7 @@
 import axios from "axios";
 import './style.css';
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import Seats from "../Seats/Seats";
@@ -9,6 +9,7 @@ import Seats from "../Seats/Seats";
 export default function SeatsRoute(){
     
     const params = useParams();
+    const navigate = useNavigate();
     const [seats, setSeats] = useState({});
     const [data, setData] = useState({});
     const [name, setName] = useState('');
@@ -16,6 +17,7 @@ export default function SeatsRoute(){
     const [seatsArray, setSeatsArray] = useState([]);
 
     useEffect(() => {
+        
         const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${params.idSessao}/seats`);
         promise.then((msg) => {
             setData(msg.data);
@@ -26,13 +28,16 @@ export default function SeatsRoute(){
     
     function makeReserv(){
         if(seatsArray.length !== 0 && cpf !== '' && name !== ''){
-            const promise = axios.post('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many', {
-                ids: seatsArray,
-                name: name,
-                cpf: cpf
-            });
+            // const promise = axios.post('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many', {
+            //     ids: seatsArray,
+            //     name: name,
+            //     cpf: cpf
+            // });
 
-            promise.then((e) => console.log(e));
+            // promise.then((e) => console.log(e));
+            console.log(data);
+            navigate('/sucesso', {state: {name: name}});
+
         }else alert('tem dado errado ai!');
     }
 
