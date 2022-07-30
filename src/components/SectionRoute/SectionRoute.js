@@ -23,8 +23,7 @@ export default function SectionRoute(){
     else{
         return (
             <>
-                <NavBar/>
-                <div className="text">Selecione o horário</div>
+                <NavBar title='Selecione o horário'/>
                 <ul>
                     {sections.map(value => <Section key={value.id} data={value}/>)}
                 </ul>

@@ -16,8 +16,7 @@ export default function MainRoute(){
 
     return (
         <>
-            <NavBar/>
-            <div className='text'>Selecione o filme</div>
+            <NavBar title='Selecione o filme'/>
             <ul className='movies'>
                 {imgs.map(value => <Movies key={value.id} img={value.posterURL} id={value.id}/>)}
             </ul>
