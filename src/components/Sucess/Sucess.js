@@ -1,6 +1,6 @@
 import './style.css';
 import NavBar from '../NavBar/NavBar';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 
 export default function Sucess(){
 
@@ -16,7 +16,7 @@ export default function Sucess(){
             </div>
             <div className='boxMsg'>
                 <h1>Ingressos</h1>
-                {(state.seatsId).map(value => <p>Assento {value}</p>)}
+                {(state.seatsId).map((value ,index)=>  <p key={index}>Assento {value}</p>)}
             </div>
             <div className='boxMsg'>
                 <h1>Comprador</h1>
@@ -24,9 +24,11 @@ export default function Sucess(){
                 <p>CPF: {state.cpf}</p>
             </div>
             <div className='dimensionsBtn'>
-                <div className='HomeButton'>
-                    Voltar pra Home
-                </div>
+                <Link to='/'>
+                    <div className='HomeButton'>
+                        Voltar pra Home
+                    </div>
+                </Link>
             </div>
         </>
     );

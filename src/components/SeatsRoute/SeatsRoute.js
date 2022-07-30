@@ -29,16 +29,19 @@ export default function SeatsRoute(){
     
     function makeReserv(){
         if(seatsArray.length !== 0 && cpf !== '' && name !== ''){
-            // const promise = axios.post('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many', {
-            //     ids: seatsArray,
-            //     name: name,
-            //     cpf: cpf
-            // });
+            const promise = axios.post('https://mock-api.driven.com.br/api/v7/cineflex/seats/book-many', {
+                ids: seatsArray,
+                name: name,
+                cpf: cpf
+            });
 
-            // promise.then((e) => console.log(e));
-            navigate('/sucesso', {state: {nameUser: name, cpf: cpf, title: data.movie.title, hour: data.name, day: data.day.date, seatsId: seatsId}});
-
-        }else alert('tem dado errado ai!');
+            promise.then(() => navigate('/sucesso', {state: {nameUser: name, cpf: cpf, title: data.movie.title, hour: data.name, day: data.day.date, seatsId: seatsId}}));
+            
+        }else {
+            alert('Insira os dados novamente!');
+            setCpf('');
+            setName('');
+        }
     }
 
     // console.log(seats);
