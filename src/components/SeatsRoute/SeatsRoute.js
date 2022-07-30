@@ -7,9 +7,13 @@ import Footer from "../Footer/Footer";
 import Seats from "../Seats/Seats";
 
 export default function SeatsRoute(){
+    
     const params = useParams();
     const [seats, setSeats] = useState({});
     const [data, setData] = useState({});
+    const [name, setName] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [seatsArray, setSeatsArray] = useState([]);
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/showtimes/${params.idSessao}/seats`);
@@ -29,7 +33,7 @@ export default function SeatsRoute(){
             <>
                 <NavBar title='Selecione o(s) assento(s)'/>
                 <div className="seats">
-                    {seats.map(value => <Seats data={value}/>)}
+                    {seats.map(value => <Seats key={value.id} data={value} setSeatsArray={setSeatsArray} seatsArray={seatsArray}/>)}
                 </div>
                 <div className="legends">
                     <div className="icons">
@@ -46,11 +50,11 @@ export default function SeatsRoute(){
                 <div className="forms">
                     <div className="dimensionsForms">
                         <p>Nome do comprador:</p>
-                        <input placeholder="Digite seu nome..."/>
+                        <input  value={name} onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..."/>
                     </div>
                     <div className="dimensionsForms">
                         <p>CPF do comprador:</p>
-                        <input placeholder="Digite seu CPF..."/>
+                        <input value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="Digite seu CPF..."/>
                     </div>
                 </div>
                 <div className="dimensionsButton">
