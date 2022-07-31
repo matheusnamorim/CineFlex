@@ -24,7 +24,7 @@ export default function Sucess(){
                 <p>CPF: {state.cpf}</p>
             </div>
             <div className='dimensionsBtn'>
-                <Link to='/'>
+                <Link to='/' style={{ textDecoration: 'none' }}>
                     <div className='HomeButton'>
                         Voltar pra Home
                     </div>

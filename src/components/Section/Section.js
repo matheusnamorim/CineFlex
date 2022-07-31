@@ -9,7 +9,7 @@ export default function Section({data}){
                 <p className='data'>{data.weekday} - {data.date}</p>
                 <div className='sections'>
                 {data.showtimes.map(value => (
-                    <Link to={`/assentos/${value.id}`} key={value.id}>
+                    <Link to={`/assentos/${value.id}`} key={value.id} style={{ textDecoration: 'none' }}>
                         <div className='schedules'>
                             {value.name}
                         </div>
