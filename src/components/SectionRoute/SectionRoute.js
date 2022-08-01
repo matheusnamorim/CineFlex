@@ -24,7 +24,7 @@ export default function SectionRoute(){
     else{
         return (
             <>
-                <NavBar title='Selecione o horário'/>
+                <NavBar title='Selecione o horário' btn={true}/>
                 <ul>
                     {sections.map(value => <Section key={value.id} data={value}/>)}
                 </ul>

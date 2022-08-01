@@ -1,6 +1,6 @@
 import './style.css';
 import NavBar from '../NavBar/NavBar';
-import { useLocation, Link, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, Link, useNavigate} from 'react-router-dom';
 import { useEffect } from 'react';
 
 export default function Sucess(){

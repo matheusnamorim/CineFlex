@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import Seats from "../Seats/Seats";
+import { cpfMask } from "../maskCPF";
 
 export default function SeatsRoute(){
     
@@ -44,14 +45,11 @@ export default function SeatsRoute(){
         }
     }
 
-    // console.log(seats);
-    //  console.log(data);
-
     if(seats.length === undefined) return <></>;
     else{
         return (
             <>
-                <NavBar title='Selecione o(s) assento(s)'/>
+                <NavBar title='Selecione o(s) assento(s)' btn={true}/>
                 <div className="seats">
                     {seats.map(value => <Seats key={value.id} data={value} setSeatsArray={setSeatsArray} seatsArray={seatsArray} seatsId={seatsId} setSeatsId={setSeatsId}/>)}
                 </div>
@@ -74,7 +72,7 @@ export default function SeatsRoute(){
                     </div>
                     <div className="dimensionsForms">
                         <p>CPF do comprador:</p>
-                        <input value={cpf} onChange={(e) => setCpf(e.target.value)} placeholder="Digite seu CPF..."/>
+                        <input value={cpf} onChange={(e) => setCpf(cpfMask(e.target.value))} placeholder="Digite seu CPF..."/>
                     </div>
                 </div>
                 <div className="dimensionsButton">
