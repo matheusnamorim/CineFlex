@@ -4,3 +4,11 @@ body{
     background-color: #FFF;
     font-family: 'Roboto', sans-serif;
 }
+
+ion-icon{
+    position: fixed;
+    top: 18px;
+    left: 5px;
+    color: #E8833A;
+    font-size: 30px;
+}

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import './style.css';
 import NavBar from "../NavBar/NavBar";
 import Section from "../Section/Section";
@@ -11,6 +11,7 @@ export default function SectionRoute(){
     const params = useParams();
     const [data, setData] = useState({});
     const [sections, setSections] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         const promise = axios.get(`https://mock-api.driven.com.br/api/v7/cineflex/movies/${params.idFilme}/showtimes`)
@@ -24,7 +25,8 @@ export default function SectionRoute(){
     else{
         return (
             <>
-                <NavBar title='Selecione o horário' btn={true}/>
+                <NavBar title='Selecione o horário'/>
+                <ion-icon onClick={()=>navigate('/')} name="arrow-back-circle"></ion-icon>
                 <ul>
                     {sections.map(value => <Section key={value.id} data={value}/>)}
                 </ul>

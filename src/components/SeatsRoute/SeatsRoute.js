@@ -5,7 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import Seats from "../Seats/Seats";
-import { cpfMask } from "../maskCPF";
+import Forms from "../Forms/Forms";
 
 export default function SeatsRoute(){
     
@@ -44,12 +44,13 @@ export default function SeatsRoute(){
             setName('');
         }
     }
-
+    
     if(seats.length === undefined) return <></>;
     else{
         return (
             <>
-                <NavBar title='Selecione o(s) assento(s)' btn={true}/>
+                <NavBar title='Selecione o(s) assento(s)'/>
+                <ion-icon onClick={()=>navigate(`/sessoes/${data.movie.id}`)} name="arrow-back-circle"></ion-icon>
                 <div className="seats">
                     {seats.map(value => <Seats key={value.id} data={value} setSeatsArray={setSeatsArray} seatsArray={seatsArray} seatsId={seatsId} setSeatsId={setSeatsId}/>)}
                 </div>
@@ -65,16 +66,7 @@ export default function SeatsRoute(){
                         <p>Indisponível</p>
                     </div>
                 </div>
-                <div className="forms">
-                    <div className="dimensionsForms">
-                        <p>Nome do comprador:</p>
-                        <input  value={name} onChange={(e) => setName(e.target.value)} placeholder="Digite seu nome..."/>
-                    </div>
-                    <div className="dimensionsForms">
-                        <p>CPF do comprador:</p>
-                        <input value={cpf} onChange={(e) => setCpf(cpfMask(e.target.value))} placeholder="Digite seu CPF..."/>
-                    </div>
-                </div>
+                <Forms name={name} cpf={cpf} setCpf={setCpf} setName={setName}/>
                 <div className="dimensionsButton">
                     <div className="button" onClick={() => makeReserv()}>
                         <p>Reservar assento(s)</p>
