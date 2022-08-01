@@ -10,6 +10,7 @@ export default function App(){
     return (
         <BrowserRouter>
             <Routes>
+                <Route path='*' element={<MainRoute />}/>
                 <Route path='/' element={<MainRoute />}/>
                 <Route path='/sessoes/:idFilme' element={<SectionRoute />}/>  
                 <Route path='/assentos/:idSessao' element={<SeatsRoute />} />
